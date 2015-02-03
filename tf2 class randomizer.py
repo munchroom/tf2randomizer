@@ -3,8 +3,6 @@
 # Current Build date: 1/31/2015
 
 # Update log
-# Version 1.02
-#	-Added a more nicely-formatted update log in the source code; no client-based updates
 # Version 1.01
 #	-Added a for loop to run the program a specific number of times specified by the user.
 #	-Added empty print statements to act as line breaks, which will format the repeated for loop much more nicely.
