@@ -1,9 +1,11 @@
 /*The TF2 Class and Loadout Randomizer (C++ port)
 Original build date: 2/5/2015
-Current Build date: 2/5/2015
+Current Build date: 2/6/2015
 
 Update log
 
+Version 1.1
+    -Fixed a major bug where choosing not to reroll didn't work at all
 Version 1.01
 	-Added the option to reroll
 Version 1.0
@@ -63,125 +65,126 @@ int main()
     cin >> numberofresults;
     numberofresults = numberofresults - 1;
     char reroll;
+    reroll = 'y';
 	do
 	{
 		for (int i = 0; i <= numberofresults; i = i + 1)
-			{
+		{
 			int yourclass = rand() % 8;
 			cout << "\nYour class is: " << tf2class[yourclass] << "\n";
 		
 			switch (yourclass)
 			{
 				case 0: //Scout
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 5;
-					yoursecondary = rand() % 7;
-					yourmelee = rand() % 20;
-					cout << "Your primary weapon is: " << scoutprimaries[yourprimary]<< "\n";
-					cout << "Your secondary weapon is: " << scoutsecondaries[yoursecondary]<< "\n";
-					cout << "Your melee weapon is: " << scoutmelees[yourmelee]<< "\n";
-					break;
-				}
-				case 1: //Soldier
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 8;
-					yoursecondary = rand() % 9;
-					yourmelee = rand() % 16;
-					cout << "Your primary weapon is: " << soldierprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << soldiersecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << soldiermelees[yourmelee] << "\n";
-					break;
-				}
-				case 2: //Pyro
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 5;
-					yoursecondary = rand() % 6;
-					yourmelee = rand() % 20;
-					cout << "Your primary weapon is: " << pyroprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << pyrosecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << pyromelees[yourmelee] << "\n";
-					break;
-				}
-				case 3: //Demoman
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 6;
-					yoursecondary = rand() % 6;
-					yourmelee = rand() % 19;
-					cout << "Your primary weapon is: " << demoprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << demosecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << demomelees[yourmelee] << "\n";
-					break;
-				}
-				case 4: //Heavy
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 5;
-					yoursecondary = rand() % 7;
-					yourmelee = rand() % 17;
-					cout << "Your primary weapon is: " << heavyprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << heavysecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << heavymelees[yourmelee] << "\n";
-					break;
-				}
-				case 5: //Engineer
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 5;
-					yoursecondary = rand() % 3;
-					yourmelee = rand() % 8;
-					cout << "Your primary weapon is: " << engiprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << engisecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << engimelees[yourmelee] << "\n";
-					break;
-				}
-				case 6: //Medic
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 3;
-					yoursecondary = rand() % 3;
-					yourmelee = rand() % 13;
-					cout << "Your primary weapon is: " << medicprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << medicsecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << medicmelees[yourmelee] << "\n";
-					break;
-				}
-				case 7: //Sniper
-				{
-					int yourprimary, yoursecondary, yourmelee;
-					yourprimary = rand() % 8;
-					yoursecondary = rand() % 6;
-					yourmelee = rand() % 12;
-					cout << "Your primary weapon is: " << sniperprimaries[yourprimary] << "\n";
-					cout << "Your secondary weapon is: " << snipersecondaries[yoursecondary] << "\n";
-					cout << "Your melee weapon is: " << snipermelees[yourmelee] << "\n";
-					break;
-				}
-				case 8: //Spy
-				{
-					int yourprimary, yoursecondary, yoursapper, yourmelee;
-					yourprimary = rand() % 5;
-					yoursecondary = rand() % 4;
-					yoursapper = rand() % 3;
-					yourmelee = rand() % 9;
-					cout << "Your primary weapon is: " << spyprimaries[yourprimary] << "\n";
-					cout << "Your cloak is: " << spysecondaries[yoursecondary] << "\n";
-					cout << "Your sapper is: " << spysappers[yoursapper] << "\n";
-					cout << "Your melee weapon is: " << spymelees[yourmelee] << "\n";
-					break;
-				}
-				default:
-				{
-					cout << "\nSomething went horribly wrong!" << "\n";
-					break;
-				}
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 5;
+						yoursecondary = rand() % 7;
+						yourmelee = rand() % 20;
+						cout << "Your primary weapon is: " << scoutprimaries[yourprimary]<< "\n";
+						cout << "Your secondary weapon is: " << scoutsecondaries[yoursecondary]<< "\n";
+						cout << "Your melee weapon is: " << scoutmelees[yourmelee]<< "\n";
+						break;
+					}
+					case 1: //Soldier
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 8;
+						yoursecondary = rand() % 9;
+						yourmelee = rand() % 16;
+						cout << "Your primary weapon is: " << soldierprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << soldiersecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << soldiermelees[yourmelee] << "\n";
+						break;
+					}
+					case 2: //Pyro
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 5;
+						yoursecondary = rand() % 6;
+						yourmelee = rand() % 20;
+						cout << "Your primary weapon is: " << pyroprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << pyrosecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << pyromelees[yourmelee] << "\n";
+						break;
+					}
+					case 3: //Demoman
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 6;
+						yoursecondary = rand() % 6;
+						yourmelee = rand() % 19;
+						cout << "Your primary weapon is: " << demoprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << demosecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << demomelees[yourmelee] << "\n";
+						break;
+					}
+					case 4: //Heavy
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 5;
+						yoursecondary = rand() % 7;
+						yourmelee = rand() % 17;
+						cout << "Your primary weapon is: " << heavyprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << heavysecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << heavymelees[yourmelee] << "\n";
+						break;
+					}
+					case 5: //Engineer
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 5;
+						yoursecondary = rand() % 3;
+						yourmelee = rand() % 8;
+						cout << "Your primary weapon is: " << engiprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << engisecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << engimelees[yourmelee] << "\n";
+						break;
+					}
+					case 6: //Medic
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 3;
+						yoursecondary = rand() % 3;
+						yourmelee = rand() % 13;
+						cout << "Your primary weapon is: " << medicprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << medicsecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << medicmelees[yourmelee] << "\n";
+						break;
+					}
+					case 7: //Sniper
+					{
+						int yourprimary, yoursecondary, yourmelee;
+						yourprimary = rand() % 8;
+						yoursecondary = rand() % 6;
+						yourmelee = rand() % 12;
+						cout << "Your primary weapon is: " << sniperprimaries[yourprimary] << "\n";
+						cout << "Your secondary weapon is: " << snipersecondaries[yoursecondary] << "\n";
+						cout << "Your melee weapon is: " << snipermelees[yourmelee] << "\n";
+						break;
+					}
+					case 8: //Spy
+					{
+						int yourprimary, yoursecondary, yoursapper, yourmelee;
+						yourprimary = rand() % 5;
+						yoursecondary = rand() % 4;
+						yoursapper = rand() % 3;
+						yourmelee = rand() % 9;
+						cout << "Your primary weapon is: " << spyprimaries[yourprimary] << "\n";
+						cout << "Your cloak is: " << spysecondaries[yoursecondary] << "\n";
+						cout << "Your sapper is: " << spysappers[yoursapper] << "\n";
+						cout << "Your melee weapon is: " << spymelees[yourmelee] << "\n";
+						break;
+					}
+					default:
+					{
+						cout << "\nSomething went horribly wrong!" << "\n";
+						break;
+					}
 			}
-			}
-	cout << "\n\nReroll? (y/n)";
-	cin >> reroll;
-	} while((reroll ='Y')&&(reroll !='N')&&(reroll ='y')&&(reroll !='n'));
+		}
+	   cout << "\n\nReroll? (y/n)\n";
+	   cin >> reroll;
+	} while ((reroll == 121) || (reroll == 89));
 return 0;
 }
