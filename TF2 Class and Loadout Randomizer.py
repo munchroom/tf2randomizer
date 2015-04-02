@@ -293,8 +293,10 @@ if classselection == 9:
 			repeat = repeat + 1
 
 if classselection == 10: # This is an easter egg based on someone's bind.
-	for repeat in range(repeat):
-		print("Fuckiing Brian using the suck gun")
+	while reroll == 'y':
+		for repeat in range(repeat):
+			print("Fuckiing Brian using the suck gun")
+		print("Use the suck gun? (y/n)")
 
 #	if classselection < 0 or => 11: # This code doesn't work because Python doesn't support goto functions, apparently.
 #		print("You did it wrong you bumpus")
